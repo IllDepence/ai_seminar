@@ -1,7 +1,17 @@
 \section{Story world modeling}\label{modeling}
+The notion of a story as a sequence of character actions is easy to understand. However, the actual modeling of a story world as a planning problem can -- depending on the level of sophistication of the modeling -- be quite involved. As a baisc example, consider the following story:
+\begin{quote}
+''In the fictional kingdom of Westeros, the highborn refugee Viserys sold his younger sister Daenerys to a warlord called Drogo in exchange for the warlord's army. He used the army to conquer Westeros and become king.''
+\end{quote}
+In order to create a planing problem from this textual representation one has to decide on how to identify predicates and actions. From there, initial and goal states can be defined. Actions can, for example, be acts carried out by characters and predicates the characters circumstances. For above example this would yield the predicates: \texttt{V-refugee}, \texttt{V-no-army}, \texttt{V-has-army}, \texttt{V-king}, \texttt{D-free}, \texttt{D-sold} and actions \texttt{V-sell-D}, \texttt{V-conquer-Westeros} where:\\
+\texttt{Viserys-sell-Daenerys} = $\langle\rangle$
 % - !! stay general here, detailed in section 4 !!
 %
-% - story knowledge in model as means of control
 % - narrative as sequence of actions by characters
 % - predicates can be ..., actions can be ...
+% - easy example: 
+%
+% more complex stuff (preview, real deal in respective chapters)
+% - story knowledge in model as means of control
+% - character actions (intended) vs. world action
 % - base plot + deviation (short/general)
