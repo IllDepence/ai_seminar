@@ -1,10 +1,17 @@
 \section{Story world modeling}\label{modeling}
 The notion of a story as a sequence of character actions is easy to understand. However, the actual modeling of a story world as a planning problem can -- depending on the level of sophistication of the modeling -- be quite involved. As a baisc example, consider the following story:
 \begin{quote}
-''In the fictional kingdom of Westeros, the highborn refugee Viserys sold his younger sister Daenerys to a warlord called Drogo in exchange for the warlord's army. He used the army to conquer Westeros and become king.''
+''In a fictional world with a continent named Westeros, the highborn refugee Viserys sold his younger sister Daenerys to a warlord in exchange for the warlord's army. He used the army to conquer Westeros and become its king.''
 \end{quote}
-In order to create a planing problem from this textual representation one has to decide on how to identify predicates and actions. From there, initial and goal states can be defined. Actions can, for example, be acts carried out by characters and predicates the characters circumstances. For above example this would yield the predicates: \texttt{V-refugee}, \texttt{V-no-army}, \texttt{V-has-army}, \texttt{V-king}, \texttt{D-free}, \texttt{D-sold} and actions \texttt{V-sell-D}, \texttt{V-conquer-Westeros} where:\\
-\texttt{Viserys-sell-Daenerys} = $\langle\rangle$
+In order to create a planing problem from this textual representation one has to decide on how to identify predicates and operators. From there, initial and goal states can be defined. Actions can, for example, be acts carried out by characters and predicates the character's circumstances. For above example this would yield the predicates $A=\{$\texttt{V-has-army},\texttt{V-king},\texttt{D-sold}$\}$ and operators $O=\{$\texttt{V-sell-D},\texttt{V-conquer-W}$\}$ where:\\
+\texttt{V-sell-D} = $\langle\neg$\texttt{V-has-army} $\land$ $\neg$\texttt{D-sold} ,  \texttt{V-has-army} $\land$ \texttt{D-sold}$\rangle$\\
+\texttt{V-conquer-W} = $\langle$\texttt{V-has-army} $\land$ $\neg$\texttt{V-king} ,  \texttt{V-king}$\rangle$\\
+Building upon the identified predicates:\\
+\texttt{I} = $\neg$\texttt{V-has-army} $\land$ $\neg$\texttt{V-king} $\land$ $\neg$\texttt{D-sold}\hphantom{tabtab}(initial state)\\
+\texttt{$\gamma$} = \texttt{V-king}\hphantom{tabtabtabtabtabtabtabtabtabtabtab}(goal formula)\\
+$\Pi=\langle A,I,O,\gamma\rangle$\hphantom{tabtabtabtabtabtabtabtabtabtal}(planning task)
+
+But wait, there's more: story knowledge, world action, intentions, variation
 % - !! stay general here, detailed in section 4 !!
 %
 % - narrative as sequence of actions by characters
