@@ -11,8 +11,11 @@ To illustrate the difference with an example: viewers of a movie might be presen
 % - 2 approaches address story/narrative at different levels
 % - fabula vs discourse
 \subsection{Planning a fabula}\label{fabula}
-In \cite{Haslum14} Haslum shows how a specific model of story generation proposed for the IPOCL planner can compiled into a classic planning problem. The model in question is designed to create fabulae and incorporates the notion of character intetions.
-\subsubsection{Story world modelling}
+In \cite{Haslum14} Haslum shows how a specific model of story generation proposed for the IPOCL planner\cite{Riedl10} can be compiled into a classic planning problem. The model in question is designed to create fabulae and incorporates the notion of character intetions.
+\subsubsection{Story world modeling}
+The central building blocks in this apporach are story characters for which certain abilities are defined. For illustration purposes a story world which is loosely based on the story of Aladdin is used. Characters are humans (Aladdin, Jasmine, king Jafar) and monsters (a genie, a dragon). These characters' abilities are actions which can be divided into intentional actions and happenings. The former are deliberate interactions with the story world or other characters (such as traveling between locations or slaying a monster) while the latter are unintentional effects (e.g. a monster scaring a human because of its appearance or a human falling in love with another).
+
+In order to create coherent, believable fabulae the modeling lays its focus on intentionality.
 % - (desired) story outcome
 % - character goals (can change, are influenced by other characters / events)
 % - intentional agents (actions percievable as contributing to goals)
@@ -29,7 +32,8 @@ In \cite{Haslum14} Haslum shows how a specific model of story generation propose
 % - 
 \subsection{Planning a discourse}\label{discourse}
 In \cite{Porteous10} Porteous, Cavazza, and Charles
-\subsubsection{Story world modelling}
+\subsubsection{Story world modeling}
+% - narrative control knowlege
+% - PoV
 \includegraphics[scale=0.6]{discourse_model}
 \subsubsection{Planning}
-% - PoV

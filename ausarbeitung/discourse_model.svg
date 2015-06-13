@@ -22,7 +22,7 @@
    id="svg4040"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="discourse_model.pdf"
+   sodipodi:docname="_discourse_model.svg"
    style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Dialog">
   <metadata
      id="metadata4283">
@@ -54,8 +54,8 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="1.0480361"
-     inkscape:cx="232.86351"
-     inkscape:cy="310.91031"
+     inkscape:cx="339.04675"
+     inkscape:cy="325.69991"
      inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -1323,15 +1323,15 @@
      clip-path="url(#clipPath2)"
      id="path4273"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke-width:0.84150279;stroke-linecap:butt;stroke-miterlimit:1.45000005"
-     transform="matrix(1.6807197,0,0,0.84022111,-773.75518,-3.8515633)" />
+     style="fill:none;stroke-width:0.85119456;stroke-linecap:butt;stroke-miterlimit:1.45000005"
+     transform="matrix(1.6555953,0,0,0.83365848,-760.82386,-0.66229197)" />
   <path
      d="m 606.9611,635.5504 -7.6155,-10.5358 -0.0566,5.8306 -5.1713,2.6939 z"
      clip-path="url(#clipPath2)"
      id="path4275"
      inkscape:connector-curvature="0"
      style="stroke:none"
-     transform="matrix(0.9807881,-0.19507615,0.19507615,0.9807881,-478.73416,23.825118)" />
+     transform="matrix(0.9807881,-0.19507615,0.19507615,0.9807881,-480.88103,23.109494)" />
   <rect
      style="color:#000000;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8.00000041, 8.00000041;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
      id="rect4530"
@@ -1857,14 +1857,14 @@
        style="font-size:12px;font-style:oblique;text-align:center;line-height:100%;text-anchor:middle;-inkscape-font-specification:CMU Sans Serif Medium Oblique"
        id="tspan5259-1-0-2-9">i</tspan></text>
   <g
-     style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.89855516;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1.45000005;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Dialog"
+     style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.87969661;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1.45000005;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Dialog"
      id="g4133-0"
-     transform="matrix(1.2385414,0,0,1,-572.05581,247.16527)"
+     transform="matrix(1.2922132,0,0,1,-609.41139,247.16527)"
      shape-rendering="geometricPrecision"
      stroke-miterlimit="1.45"
      text-rendering="geometricPrecision">
     <path
-       style="fill:none;stroke-width:0.89855516"
+       style="fill:none;stroke-width:0.87969661"
        inkscape:connector-curvature="0"
        id="path4135-0"
        clip-path="url(#clipPath2-5)"
@@ -1873,15 +1873,15 @@
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Sans Serif;-inkscape-font-specification:CMU Sans Serif Medium"
-     x="250.27847"
+     x="243.83788"
      y="534.87091"
      id="text5050-2-6-7"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan5052-1-2-5"
-       x="250.27847"
+       x="243.83788"
        y="534.87091"
-       style="font-size:20px">decomose</tspan></text>
+       style="font-size:20px">decompose</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:40px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:CMU Sans Serif;-inkscape-font-specification:CMU Sans Serif Medium"
