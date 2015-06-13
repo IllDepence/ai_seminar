@@ -13,9 +13,22 @@ To illustrate the difference with an example: viewers of a movie might be presen
 \subsection{Planning a fabula}\label{fabula}
 In \cite{Haslum14} Haslum shows how a specific model of story generation proposed for the IPOCL planner\cite{Riedl10} can be compiled into a classic planning problem. The model in question is designed to create fabulae and incorporates the notion of character intetions.
 \subsubsection{Story world modeling}
-The central building blocks in this apporach are story characters for which certain abilities are defined. For illustration purposes a story world which is loosely based on the story of Aladdin is used. Characters are humans (Aladdin, Jasmine, king Jafar) and monsters (a genie, a dragon). These characters' abilities are actions which can be divided into intentional actions and happenings. The former are deliberate interactions with the story world or other characters (such as traveling between locations or slaying a monster) while the latter are unintentional effects (e.g. a monster scaring a human because of its appearance or a human falling in love with another).
+The central building blocks in this apporach are story characters for which certain abilities are defined. For illustration purposes a story world which is loosely based on the story of Aladdin is used. Characters are humans (Aladdin, Jasmine, king Jafar) and monsters (a genie, a dragon). The characters' abilities are actions which can be divided into intentional actions and happenings. The former are deliberate interactions with the story world or other characters (such as traveling between locations or slaying a monster) while the latter are unintentional effects (e.g. a monster scaring a human because of its appearance or a human falling in love with another).
 
-In order to create coherent, believable fabulae the modeling lays its focus on intentionality.
+In order to create coherent, believable fabulae the modeling lays its focus on intentionality. Apart from the desired story outcome (the goal of the overall planning problem) characters can have their own goals which can arise and change through influence by the story world. Intentionality can also be caused by delegation -- i.e. a character A evokes a character goal in another character B (for example through a command or persuasion). Most importantly character goals allow for \emph{intentional plans} which characters can pursue. When a character has a goal and carries out an action in order to reach it, the action is said to be performed in a \emph{frame of commitment}. Formally these terms are defined as follows:
+\begin{quote}
+''\textbf{Definition 1} An intentional plan is one in which every occurrence of an intentional action is part of some frame of commitment. A frame of commitment is a subset $S'$ of steps (i.e., action occurrences) in the plan, associated with a modal literal $(intends\ A\ g)$, satisfying four requirements: (1) Character $A$ is an actor of every step in $S'$. (2) There is a final step $s_{fin}\in S'$ that makes $g$ true. (3) There is a motivating step $s_m$ in the plan, which adds $(intends\ A\ g)$ and which precedes all steps in $S'$. We’ll say there is a motivational link from $s_m$ to every step in the frame of commitment, $S'$. Note that $s_m$ is not part of $S'$. (4) From each step in $S'$ other than $s_{fin}$ there is a path of causal or motivational links to $s_{fin}$. A complete (fabula) plan is one that is both intentional and valid in the classical sense.'' \cite{Haslum14}
+\end{quote}
+To visually aid the formal definition consider figure \ref{fig:intplan}. Arrows are to represent actions and dashed lines an arbitrary sequence of actions now shown. If all blue arrows are actions carried out by character $A$ then the frame of commitment is $S'=\{s_i,s_{i+1},s_{i+x},s_{fin}\}$. Note that $s_m$ does not necessarily have to be an action of $A$ since intention can be delegated and that the intentional plan which includes $S'$ may contain an arbitrary number of happenings unrelated to $S'$ or $g$.
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[scale=0.8]{intentional_plan}
+ \caption{Visual example of a frame of commitment.}
+ \label{fig:intplan}
+\end{figure}
+
+Something something explicit justification tracking segway to compilations.
+
 % - (desired) story outcome
 % - character goals (can change, are influenced by other characters / events)
 % - intentional agents (actions percievable as contributing to goals)
@@ -35,5 +48,10 @@ In \cite{Porteous10} Porteous, Cavazza, and Charles
 \subsubsection{Story world modeling}
 % - narrative control knowlege
 % - PoV
-\includegraphics[scale=0.6]{discourse_model}
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[scale=0.6]{discourse_model}
+ \caption{Visualization of the modeling process.}
+ \label{fig:intplan}
+\end{figure}
 \subsubsection{Planning}
