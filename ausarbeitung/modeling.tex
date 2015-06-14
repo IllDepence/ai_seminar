@@ -1,15 +1,15 @@
 \section{Story world modeling}\label{modeling}
-The notion of a story as a sequence of character actions is easy to understand. However, the actual modeling of a story world as a planning problem can -- depending on the level of sophistication of the modeling -- be quite involved. As a baisc example, consider the following story:
+The notion of a story as a sequence of character actions is easy to understand. However, the actual modeling of a story world as a planning problem can --- depending on the level of sophistication of the modeling --- be quite involved. As a baisc example, consider the following story:
 \begin{quote}
 ''In a fictional world with a continent named Westeros, the highborn refugee Viserys sold his younger sister Daenerys to a warlord in exchange for the warlord's army. He used the army to conquer Westeros and become its king.''
 \end{quote}
-In order to create a planing problem from this textual representation one has to decide on how to identify predicates and operators. From there, initial and goal states can be defined. Actions can, for example, be acts carried out by characters and predicates the character's circumstances. For above example this would yield the predicates $A=\{$\texttt{V-has-army},\texttt{V-king},\texttt{D-sold}$\}$ and operators $O=\{$\texttt{V-sell-D},\texttt{V-conquer-W}$\}$ where:\\
-\texttt{V-sell-D} = $\langle\neg$\texttt{V-has-army} $\land$ $\neg$\texttt{D-sold} ,  \texttt{V-has-army} $\land$ \texttt{D-sold}$\rangle$\\
-\texttt{V-conquer-W} = $\langle$\texttt{V-has-army} $\land$ $\neg$\texttt{V-king} ,  \texttt{V-king}$\rangle$\\
+In order to create a planing problem from this textual representation one has to decide on how to identify predicates and operators. From there, initial and goal states can be defined. Actions can, for example, be acts carried out by characters and predicates the character's circumstances. For above example this would yield the predicates $A=\{V\h has\h army,V\h king,D\h sold\}$ and operators $O=\{V\h sell\h D,V\h conquer\h W\}$ where:\\
+$V\h sell\h D=\langle\neg V\h has\h army\land\neg D\h sold\ ,V\h has\h army\land D\h sold\rangle$\\
+$V\h conquer\h W=\langle V\h has\h army\land\neg V\h king\ ,V\h king\rangle$\\
 Building upon the identified predicates:\\
-\texttt{I} = $\neg$\texttt{V-has-army} $\land$ $\neg$\texttt{V-king} $\land$ $\neg$\texttt{D-sold}\hphantom{tabtab}(initial state)\\
-\texttt{$\gamma$} = \texttt{V-king}\hphantom{tabtabtabtabtabtabtabtabtabtabtab}(goal formula)\\
-$\Pi=\langle A,I,O,\gamma\rangle$\hphantom{tabtabtabtabtabtabtabtabtabtal}(planning task)
+$I=\neg V\h has\h army\land\neg V\h king\land\neg D\h sold$\hphantom{tabtabtb}(initial state)\\
+$\gamma= V\h king$\hphantom{tabtabtabtabtabtabtabtabtabtaataatl}(goal formula)\\
+$\Pi=\langle A,I,O,\gamma\rangle$\hphantom{tabtabtabtabtabtabtabtabtabtabl}(planning task)
 
 Above example shows how a very minimal story can be modeled as a planning task but it doesn't really make it clear why this would be useful. The problem is, that it is a mere one-to-one ''translation'' and solving the planning task results in nothing more than the story which was used a as starting point. Narrative generation becomes useful once its result is something \emph{new}. This is the case, for example, when things like story variations or interactivity are introduced or when planning story structures based on fundamental world rules and a set of characters. This is also when the modeling process becomes more involved. Chapters \ref{fabula}, ''\nameref{fabula}'', and \ref{discourse}, ''\nameref{discourse}'', will describe two instances of such modeling approaches in more detail.
 
