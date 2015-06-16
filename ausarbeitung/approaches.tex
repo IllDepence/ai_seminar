@@ -73,7 +73,7 @@ In \cite{Porteous10} Porteous, Cavazza, and Charles present an approach to narra
 \subsubsection{Story world modeling}
 For illustration purposes \cite{Porteous10} employs the \emph{pound of flesh} sub-plot of Shakespeare's \emph{The Merchant of Venice}, which revolves around a loan agreement between Antonio, a wealthy Christian merchant and Shylock, a Jewish moneylender. Primary aspects of the story world modeling are the concepts of narrative control knowlege and decomposition --- to allow interactivity and generated variation (deviation introduced by a non deterministic element) whilst adhering to a predefined baseline plot --- and the usage of character PoV (point of view) --- to generate variation. The modeling process that implements these constructs is illustrated in figure \ref{fig:modproc} on page \pageref{fig:modproc} and will be explained in the following.
 
-Narrative control knowlege makes it possible to control the shape of a narrative. It's concrete use in the modeling approach at hand is to guide the narrative along a predetermined baseline plot. This is done by identifying key components of the plot structure and formulating state trajectory constraints, which are based on story world predicates. An example for the \emph{pound of flesh} sub-plot would be the predicate $(sealed\h bond\h over\h load\ shylock\ antonio)$. These constraints are then implemented by PDDL3.0's modal operators \emph{some\-time-before} and \emph{sometime}. Interesting to note is, that for a given generated story not all identified constraints are used. Only choosing a subset for each generation process is a way to introduce variation.
+Narrative control knowlege makes it possible to control the shape of a narrative. It's concrete use in the modeling approach at hand is to guide the narrative along a predetermined baseline plot. This is done by identifying key components of the plot structure and formulating state trajectory constraints, which are based on story world predicates. An example for the \emph{pound of flesh} sub-plot would be the predicate $(sealed\h bond\h over\h load\ shylock\ antonio)$. These constraints are then implemented by PDDL3.0's modal operators \emph{some\-time-before} and \emph{sometime}, the former of which is used for constraints where its relative order with respect to other events is important while the latter is used for things that are allowed to happen at any time during the story. Interesting to note is, that for a given generated story not all identified constraints are used. Only choosing a subset for each generation process is a way to introduce variation.
 \begin{figure}[htbp]
  \centering
  \includegraphics[scale=0.6]{discourse_model}
@@ -83,7 +83,45 @@ Narrative control knowlege makes it possible to control the shape of a narrative
 
 Similar to the story world modeling in section \ref{fabula} attributes and actions of characters are translated into predicates and operators. Together with the goal built upon predicates this forms the model of narrative domain which leads to the initial planning problem. The chosen subset of constraints is then used to decompose the planning problem into several sub problems where the goal of a problem $n$ is the initial state of the problem $n+1$. This practice of decomposition accomplishes two things. First, since the constraints used are always different it leads to variation in the output; second, it allows for quick replanning which is necessary in the event of intervention --- i.e. when the system is used for interactive story planning.
 
-The key aspect that is not visible in \ref{fig:modproc} is PoV. PoV explanation, example, bla.
+The remaining key aspect, that is not visible in figure \ref{fig:modproc}, is PoV. It is another device for introducing variation to the story and works as follows. As one would excpect from the name, a character's \emph{point of view} renders the story from their perspective. In addition to that PoV is used to define a character's standpoint or disposition with regard to certain story events. To illustrate both aspects consider the following example: the sealing of the bond over the loan in the \emph{pound of flesh} sub-plot can be presented from the perspective of either of the involved characters, Shylock or Antonio. Furthermore let each character have two possible dispositions concerning the event. In \cite{Porteous10} the four resulting PoVs are described as follows:\\
+\\
+\begin{tabular}{|p{4.5cm}|p{8.5cm}|}
+\hline
+PoV & Action \\
+\hline\hline
+$(pov\ antonio\h risk\h taker)$ & Antonio, carfree risk taker, borrows money with no heed to the consequences.\\
+\hline
+$(pov\ antonio\h victim)$ & Antonio, a loyal friend, borrows money from Shylock, fully aware of the risks.\\
+\hline
+$(pov\ shylock\h victim)$ & Shylock, a patient victim, extends a favour to Antonio by lending him money.\\
+\hline
+$(pov\ shylock\h ruthless)$ & Shylock, intent on revenge, lends money to Antonio anticipating the forfeit.\\
+\hline
+\end{tabular}\\
+\\
+With these the sealing of the bond can be shown in 4 different ways. As a consequence the action of sealing the bond (i.e. the operation which will be part of the resulting ''story plan'') has to be defined in 4 different ways. In PDDL3.0 these are (shortened):
+\begin{lstlisting}[frame=single,basicstyle=\scriptsize]
+(:action borrow-money-confident-repay antonio shylock venice-rialto) ...
+    :precondition   (and (pov antonio-risk-taker) ...)
+    :effect         (and (sealed-bond-over-loan shylock antonio)
+                    (unconcerned-over-forfeit antonio) ... ))
+(:action borrow-money-wary-of-risk antonio shylock venice-rialto) ...
+    :precondition   (and (pov antonio-victim) ...)
+    :effect         (and (sealed-bond-over-loan shylock antonio)
+                    (concerned-over-forfeit antonio) ...))
+(:action lend-money-as-favour shylock antonio venice-rialto) ...
+    :precondition   (and (pov shylock-victim) ... )
+    :effect         (and (sealed-bond-over-loan shylock antonio) ...))
+(:action (lend-money-intent-on-revenge shylock antonio venice-rialto) ...
+    :precondition   (and (pov shylock-ruthless) ...)
+    :effect         (and (sealed-bond-over-loan shylock antonio) ...))
+\end{lstlisting}
+It can be seen that $(sealed\h bond\h hover\h loan\ shylock\ antonio)$ is always an effect while other, varying effects may also be present. Furthermore PoVs are used as preconditions, ensuring that each represenation of the action is only used in plans where the corresponding PoV has been chosen.% constraints have PoV information
+% PoV does two things:
+%   1. show story from perspective of respective character
+%   2. define character's standpoint with regard to certain events
+% "different representations for the same narrative action depeding on PoV"
+
 % - narrative control knowlege
 %     -> state trajectory constraints (mention Landmarks here)
 % (- interactivity) really part of approach?
@@ -94,5 +132,6 @@ The key aspect that is not visible in \ref{fig:modproc} is PoV. PoV explanation,
 % - constraints used for decomposition (figure)
 %     -> selection of constraints -> variation (dynamically handeled)
 \subsubsection{Result}
+Clearly evident due to the inclusion of PoV this approach to narrative generation produces a discourse as a result --- that is, a solution to a planning problem representing what a viewer of the play that seved as an example might see. (TODO: Fig. 7 from Porteous paper in appendix or just mention? Mention run-time performance results?)
 % - variation
 % - response time
