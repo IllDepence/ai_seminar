@@ -29,7 +29,7 @@ To visually aid the formal definition consider figure \ref{fig:intplan} on page 
  \label{fig:intplan}
 \end{figure}
 
-Ensuring that character goals are pursued by means of intentional plans is referred to as \emph{explicit justification tracking}. In Riedl and Young's approach \cite{Riedl10} this is performed by the IPOCL planner but in Haslum's paper \cite{Haslum14} it is incorporated into the planning problem. This is accomplished by the main compilation described in Haslum's paper \cite{Haslum14} and will be briefly discussed in the following subsection.
+Ensuring that character goals are pursued by means of intentional plans is referred to as \emph{explicit justification tracking}. In Riedl and Young's approach \cite{Riedl10} this is performed by the IPOCL planner but in Haslum's paper \cite{Haslum14} it is incorporated into the planning problem. This is accomplished by the main compilation described by Haslum and will be briefly discussed in the following subsection.
 
 % - (desired) story outcome
 % - character goals (can change, are influenced by other characters / events)
@@ -46,7 +46,7 @@ Ensuring that character goals are pursued by means of intentional plans is refer
 \subsubsection{Compilation}
 The original story generation model includes modal literals in the form of $(intends\ A\ g)$ in order to handle intentionality. For the compilation into a classic planning problem predicates are introduced for intention, delegation and justification. Intention literals are used as preconditions for intentional actions, which allows the modeling of frames of commitment --- e.g. $(intends\h dead\ Aladdin\ Dragon)$ as a precondition for every action in Aladdins frame of commitment to slay the dragon including $s_{fin}$ (him achieving his goal). Delegation and justification literals, on the other hand, are used for justification tracking. They are true in the initial state, required to be true at the goal, made false by certain intentional actions and then set up in a way such that only if motivational link as described in Definition 1 are adhered to will they become true again.
 
-Description and discussion of this compilation's precise nature take up most of \cite{Haslum14} and can therefore not be covered here. To get an intuition of a possible output consider below example of a monster slaying action in PPDL-like syntax.\\
+Description and discussion of this compilation's precise nature take up most of Haslum's paper \cite{Haslum14} and can therefore not be covered here. To get an intuition of a possible output consider below example of a monster slaying action in PPDL-like syntax.\\
 \\
 \begin{lstlisting}[frame=single,basicstyle=\scriptsize,numbers=left,numberstyle=\tiny]
 (:action slay-1-because-intends-dead
@@ -81,7 +81,7 @@ For illustration purposes Porteous et al. \cite{Porteous10} employ the \emph{pou
  \label{fig:modproc}
 \end{figure}
 
-Narrative control knowledge makes it possible to control the shape of a narrative. It's concrete use in the modeling approach at hand is to guide the narrative along a predetermined baseline plot. This is done by identifying key components of the plot structure and formulating state trajectory constraints, which are based on story world predicates. An example for the \emph{pound of flesh} sub-plot would be the predicate $(sealed\h bond\h over\h load\ shylock\ antonio)$. These constraints are then implemented by PDDL3.0's \cite{Gerevini09} modal operators \emph{some\-time-before} and \emph{sometime}, the former of which is used for constraints where its relative order with respect to other events is important while the latter is used for things that are allowed to happen at any time during the story. Interesting to note is, that for a given generated story not all identified constraints are used. Only choosing a subset for each generation process is a way to introduce variation.
+Narrative control knowledge makes it possible to control the shape of a narrative. Its concrete use in the modeling approach at hand is to guide the narrative along a predetermined baseline plot. This is done by identifying key components of the plot structure and formulating state trajectory constraints, which are based on story world predicates. An example for the \emph{pound of flesh} sub-plot would be the predicate $(sealed\h bond\h over\h load\ shylock\ antonio)$. These constraints are then implemented by PDDL3.0's \cite{Gerevini09} modal operators \emph{some\-time-before} and \emph{sometime}, the former of which is used for constraints where their relative order with respect to other events is important while the latter is used for things that are allowed to happen at any time during the story. Interesting to note is, that for a given generated story not all identified constraints are used. Only choosing a subset for each generation process is a way to introduce variation.
 
 Similar to the story world modeling in section \ref{fabula} attributes and actions of characters are translated into predicates and operators. Together with the goal built upon predicates this forms the model of narrative domain which leads to the initial planning problem. The chosen subset of constraints is then used to decompose the planning problem into several sub problems where the goal of a problem $n$ is the initial state of the problem $n+1$. This practice of decomposition accomplishes two things. First, since the constraints used are always different it leads to variation in the output; second, it allows for quick replanning which is necessary in the event of intervention --- i.e. when the system is used for interactive story planning. The decomposition procedure is described in more detail in Porteous et al. \cite{Porteous10}.
 
@@ -134,6 +134,6 @@ It can be seen that $(sealed\h bond\h hover\h loan\ shylock\ antonio)$ is always
 % - constraints used for decomposition (figure)
 %     -> selection of constraints -> variation (dynamically handeled)
 \subsubsection{Result}
-Clearly evident due to the inclusion of PoV this approach to narrative generation produces a discourse as a result --- that is, a solution to a planning problem representing what a viewer of the play that seved as an example might see. An example of such a result can be seen in the appendix in figure \ref{fig:a2} on page \pageref{fig:a2}.
+Clearly evident due to the inclusion of PoV this approach to narrative generation produces a discourse as a result --- that is, a solution to a planning problem representing what a viewer of the play might see. An example of such a solution can be seen in the appendix in figure \ref{fig:a2} on page \pageref{fig:a2}.
 % - variation
 % - response time
