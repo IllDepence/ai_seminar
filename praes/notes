@@ -1,0 +1,51 @@
+1
+- welcome
+- name
+- title (story telling -> generating narratives by means of planning)
+
+2-3
+- can find application areas where the problem at hand is stucturally similar to classic problem solving taks
+- in the case of stories: think of story as sequence of character actions
+- story -> look at it as a sequence of character actions ... you already have a story. benefit? when sth new (i.e. when creating new stories)
+
+4
+- outline
+- how to model story worlds as planning problems
+- differences to classical planning
+- look at two concrete approaches. designated by the words "Fabula" and "Discourse" (explanation later)
+- end: conclusion
+
+5
+- on a basic level you can think of it like this
+
+6-8
+- for example, this very short story
+
+9
+10-11
+- so, this was on a basic level, if we want to approach the problem with more sophistication
+- the following aspects can be considered
+
+12
+- we have story variations: given a rough outline of a story, create different variants
+- interactivity: a story character is controlled by a human, the rest of the system has to "react"
+- story structures: given a set of characters, abilities, ...
+- all covered in approaches, but before that
+
+13
+- as we have seen, similar
+- but different in nature
+    - purpose: problem solving task, to solve; story to entertain
+    - key properties [of solutions]: be short, find fast / <hard to grasp> ... interestingness (how to formalize?)
+- specialized planners BUT ALSO much can be modeled into classic planning task
+- interactivity not so much intrinsic difference but interesting aspect
+
+14
+- 2 concrete approaches
+- Haslum ... planning a fabula
+- Porteous ... planning a discourse
+- as stated before, approach on different levels, explanation:
+
+15
+- <quote>
+- for illustration purposes, imagine a low budget movie where a large battle starts ... and then you only see the aftermath
