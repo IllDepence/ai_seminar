@@ -49,3 +49,72 @@
 15
 - <quote>
 - for illustration purposes, imagine a low budget movie where a large battle starts ... and then you only see the aftermath
+
+16
+- start with fabula, story structure
+    -> since story structure **we start out w/ set of characters + world rules**
+- based on approach for IPOCL planner, Haslum shows in paper how the aspects considered in approach can be modeled as classic planning problem
+- in order to create a believable story: focus on intentionality, which entails
+    - character goals
+    - delegation of goals
+    -> used to form intetional plans
+
+17-19
+- to illustrate, set of characters, e.g. king, princess, knight; given goal; solve
+- character goals: princess marry, knight slay dragon
+- delegation: king commanded knight to slay dragon
+
+20-21
+- how is this formalized to realize to notion of intentional plans?
+- number of steps S, a subset of which are intentional actions (**S' -> frame of commitment**), associated with literal (intends A g)
+- to illustrate
+- to give an idea of how a result looks like ...
+
+22-27
+- paper uses story close to Aladdin and magic lamp (but adds dragon)
+- whole thing too much to explan, therefore just frames of commitment explained before
+    - Jafar wants to marry Jasmine
+    - Aladdin wants to slay a dragon (delegated)
+    - Genie intends to make Jasmine fall in love w/ Jafar
+    - Aladdin intends to slay the Genie
+    - Jasmine intends to marry Jafar
+
+28
+- the other approach tries to achieve 2 goals: create story variations (rough outline given) and be able to support interavtivity
+- for that, 2 tools are eployed:
+    - modelling character PoV -> variation
+    - Decomposition of the planning problem-> variation & interactivity
+
+29
+- we start w/ PoV
+- encompasses 2 aspects: perspective (from which characters eye), disposition (a characters feelings/thoughts towards a specific matter)
+- earlier action of Viserys selling Daeneris
+
+30
+- two possible perspectives
+- for each perspective, two different dispositions
+
+31
+- for each of these 4, a dedicated version of the operator has to be defined
+- pov is precondition, other things such as effects may vary (e.g. revengeful Daeneris hating her brother)
+
+32
+- this was PoV
+- decomposition of the planning problem is a process added to the story world modelling process
+- results in process like this ...
+
+33
+- right hand side is what we did in the beginning
+- for left hand side: identify key components of plot structure, formulate constraints
+- use to decompose such that constraints are 'inbetween goals' / checkpoints
+- how does this help?
+    - variation: only select a subset of constraints
+    - interactivity: faster replanning after human intervention
+- again, to give an idea of how a result looks like ...
+
+34
+- shakespear's merchant of venice
+- perspective of a character called antonio, etc.
+
+35
+- conclude
